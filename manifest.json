@@ -1,18 +1,22 @@
 {
-  "name": "TaoBao Extractor - Seamless Industries",
+  "name": "Taobao Tracking Export (seamlesshq.com)",
   "version": "1.0",
   "manifest_version": 2,
   "description": "Extracts tracking number with relevant info",
   "browser_action": {
-    "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
-  "cookies",
-  "tabs", 
-  "https://*.taobao.com/", 
-  "http://*.taobao.com/", 
-  "http://laravel-purchase-pool-nicksonyap-3.c9users.io/", 
-  "https://laravel-purchase-pool-nicksonyap-3.c9users.io/"
+    "cookies",
+    "tabs",
+    "https://*.taobao.com/",
+    "http://*.taobao.com/",
+    "http://laravel-purchase-pool-nicksonyap-3.c9users.io/",
+    "https://laravel-purchase-pool-nicksonyap-3.c9users.io/"
   ]
 }
