@@ -72,16 +72,14 @@ String.prototype.trunc = String.prototype.trunc ||
 
                         try {
                             //document.getElementById("demo").innerHTML = xhttp.responseText;
-                            console.log(xhttp.responseText);
                             var returnedJSON = JSON.parse(xhttp.responseText);
+                            console.log(order.id, returnedJSON);
 
-                            if (returnedJSON.success == true) {
-                                orderItem.shipper = returnedJSON.detailList[0].cpName;
-                                orderItem.trackingNum = returnedJSON.detailList[0].mailNo;
-                                if (returnedJSON.detailList[0].detail != null) {
-                                	var detailArray = returnedJSON.detailList[0].detail;
-                                	var lastDetailIndex = detailArray.length-1;
-                                    orderItem.trackingStat = detailArray[lastDetailIndex].action;
+                            if (returnedJSON.isSuccess == true || returnedJSON.isSuccess == 'true') {
+                                orderItem.shipper = returnedJSON.expressName;
+                                orderItem.trackingNum = returnedJSON.expressId;
+                                if (returnedJSON.address && returnedJSON.address[0]) {
+                                    orderItem.trackingStat = returnedJSON.address[0].place.trunc(20);
                                 } else {
                                     orderItem.trackingStat = 'NONE';
                                 }
@@ -129,7 +127,8 @@ String.prototype.trunc = String.prototype.trunc ||
                     }
                 };
                 //var postURL = "https://buyertrade.taobao.com/trade/json/transit_step.do?bizOrderId=" + order.id;
-                var postURL = "https://detail.i56.taobao.com/call/queryTrace.do?dimension=TRADE_ID&tradeId=" + order.id;
+                // var postURL = "https://detail.i56.taobao.com/call/queryTrace.do?dimension=TRADE_ID&tradeId=" + order.id;
+                var postURL = "https://buyertrade.taobao.com/trade/json/transit_step.do?bizOrderId=" + order.id;
                 xhttp.open("get", postURL, true);
                 //console.log(postURL);
                 xhttp.send();
