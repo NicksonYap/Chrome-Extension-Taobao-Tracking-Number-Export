@@ -1,52 +1,36 @@
-const laravelDomain = 'https://laravel-purchase-pool-nicksonyap-3.c9users.io/'; //must have '/' character at the end
+// const laravelDomain = 'https://laravel-purchase-pool-nicksonyap-3.c9users.io/'; //must have '/' character at the end
 
 function onWindowLoad() {
   chrome.tabs.executeScript(
     null,
     {
-      file: 'jquery-2.2.2.min.js'
+      file: 'content_script.js'
     },
     function() {
-      chrome.tabs.executeScript(
-        null,
+    /* chrome.cookies.get(
         {
-          file: 'moment.js'
+        url: laravelDomain + 'taobao/order/add',
+        name: 'XSRF-TOKEN'
         },
-        function() {
-          chrome.tabs.executeScript(
-            null,
-            {
-              file: 'content_script.js'
-            },
-            function() {
-              chrome.cookies.get(
-                {
-                  url: laravelDomain + 'taobao/order/add',
-                  name: 'XSRF-TOKEN'
-                },
-                function(cookie) {
-                  var laravelXSRFToken = cookie.value;
+        function(cookie) {
+        var laravelXSRFToken = cookie.value;
 
-                  chrome.tabs.query(
-                    {
-                      active: true,
-                      currentWindow: true
-                    },
-                    function(tabs) {
-                      console.log(tabs[0].id);
-                      chrome.tabs.sendMessage(tabs[0].id, {
-                        action: 'laravelXSRFToken',
-                        source: laravelXSRFToken
-                      });
-                      console.log(laravelXSRFToken);
-                    }
-                  );
-                }
-              );
+        chrome.tabs.query(
+            {
+            active: true,
+            currentWindow: true
+            },
+            function(tabs) {
+            console.log(tabs[0].id);
+            chrome.tabs.sendMessage(tabs[0].id, {
+                action: 'laravelXSRFToken',
+                source: laravelXSRFToken
+            });
+            console.log(laravelXSRFToken);
             }
-          );
+        );
         }
-      );
+    ); */
     }
   );
 }
