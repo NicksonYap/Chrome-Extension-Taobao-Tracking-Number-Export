@@ -34,8 +34,8 @@ $(document).ready(function() {
           excludeOrder = true;
         }
         /*if(order.statusInfo.text != "交易成功"){
-                	excludeOrder = true;
-                }*/
+                      excludeOrder = true;
+                    }*/
 
         if (!excludeOrder) {
           trackingTotal++;
@@ -88,8 +88,8 @@ $(document).ready(function() {
               //console.log(returnedJSON);
               //console.log(orderItem.time, returnedJSON.expressName, returnedJSON.expressId, orderItem.title);
               /* orderItem.shipper = returnedJSON.expressName;
-                             orderItem.trackingNum = returnedJSON.expressId;
-                             orderItem.trackingStat = returnedJSON.address[0].place;*/
+                                 orderItem.trackingNum = returnedJSON.expressId;
+                                 orderItem.trackingStat = returnedJSON.address[0].place;*/
             } catch (e) {
               orderItem.shipper = '-';
               orderItem.trackingNum = '-';
@@ -97,6 +97,9 @@ $(document).ready(function() {
               //console.log(order.id, "no tracking");
               console.log(order.id, 'not json');
             }
+            chrome.runtime.sendMessage({ action: 'message', message: JSON.stringify(orderItem) }, function(response) {
+              console.log(response.farewell);
+            });
 
             orderList.push(orderItem);
 
