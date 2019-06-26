@@ -60,7 +60,7 @@ $(document).ready(function() {
           //orderItem.title += subOrder.itemInfo.title.substring(0, 20) + ";";
           orderItem.title += subOrder.itemInfo.title.trunc(20) + '; ';
         });
-        orderItem.title.trunc(50);
+        orderItem.title = orderItem.title.trunc((20 + 2) * 3);
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -68,9 +68,9 @@ $(document).ready(function() {
             try {
               //document.getElementById("demo").innerHTML = xhttp.responseText;
               var returnedJSON = JSON.parse(xhttp.responseText);
-              console.log(order.id, returnedJSON);
 
               if (returnedJSON.isSuccess == true || returnedJSON.isSuccess == 'true') {
+                console.log(order.id, returnedJSON);
                 orderItem.shipper = returnedJSON.expressName;
                 orderItem.trackingNum = returnedJSON.expressId;
                 if (returnedJSON.address && returnedJSON.address[0]) {

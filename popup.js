@@ -56,7 +56,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     //paidListings[count][8]  // shipment provider
 
     count++;
-    $('#target').append('<table id="list"></table>');
+    $('#target').append('<table id="list" style="white-space:nowrap;width:700px;height:700px;overflow: scroll;"></table>');
     $('#list').append('<tr id="' + count + '"></tr>');
     $('tr#' + count).append('<td>' + count + '</td>');
     $('tr#' + count).append('<td>' + request.source[8] + '</td>');
@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
     $('#message').remove();
 
-    $('#target').append('<table id="list"></table>');
+    $('#target').append('<table id="list" style="white-space:nowrap;width:700px;height:700px;overflow: scroll;"></table>');
 
     request.orderList.forEach(function(order) {
       $('#list').append('<tr id="' + order.no + '"></tr>');
