@@ -1,6 +1,7 @@
 {
-  "name": "Taobao Tracking Export (seamlesshq.com)",
-  "version": "1.0",
+  "name": "Taobao Tracking Number Export -seamlesshq.com",
+  "short_name": "Taobao Tracking Export",
+  "version": "1.0.1",
   "manifest_version": 2,
   "description": "Extracts tracking number with relevant info",
   "browser_action": {
@@ -8,7 +9,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://buyertrade.taobao.com/trade/itemlist/list_bought_items.htm"],
+      "matches": ["https://buyertrade.taobao.com/trade/itemlist/list_bought_items.htm*"],
       "js": ["moment.js", "jquery-2.2.2.min.js"]
     }
   ],
@@ -17,12 +18,5 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "permissions": [
-    "cookies",
-    "tabs",
-    "https://*.taobao.com/",
-    "http://*.taobao.com/",
-    "http://laravel-purchase-pool-nicksonyap-3.c9users.io/",
-    "https://laravel-purchase-pool-nicksonyap-3.c9users.io/"
-  ]
+  "permissions": ["cookies", "tabs", "https://*.taobao.com/", "http://*.taobao.com/"]
 }
