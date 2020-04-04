@@ -51,6 +51,8 @@ $(document).ready(function() {
         // orderItem.id = order.id;
         orderItem.no = count;
         orderItem.time = order.orderInfo.createTime;
+        orderItem.orderId = order.orderInfo.id;
+        orderItem.total_price = order.payInfo.actualFee;
         orderItem.shipper = '';
         orderItem.trackingNum;
         orderItem.trackingStat = '';

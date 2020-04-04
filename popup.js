@@ -76,6 +76,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       $('tr#' + order.no).append('<td>' + order.title + '</td>');
       $('tr#' + order.no).append('<td>' + order.time + '</td>');
       $('tr#' + order.no).append('<td>' + order.trackingStat + '</td>');
+      $('tr#' + order.no).append('<td>' + "'" + order.orderId + '</td>');
+      $('tr#' + order.no).append('<td>' + order.total_price + '</td>');
     });
   }
 
