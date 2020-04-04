@@ -1,7 +1,7 @@
 {
   "name": "Taobao Tracking Number Export -seamlesshq.com",
   "short_name": "Taobao Tracking Export",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
   "description": "Extracts tracking number with relevant info",
   "browser_action": {
